@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Almer Staal</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+ <script>
+    window.onload = function () {
+        new TypeIt("#welcome-message", {
+            strings: ["Welcome to my personal website."],
+            speed: 45,
+            waitUntilVisible: true,
+        }).go();
+    };
+</script>
+</head>
+<body>
+    <div class="flex px-8 py-6 border-b-2">
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full text-2xl items-end">
+            <div class="col-span-1">
+                <a href="/">Almer Staal</a>
+            </div>
+            <div class="hidden sm:block col-span-1">
+                <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
+            </div>
+            <div class="col-span-1 flex justify-end space-x-4">
+                <a href="https://github.com/ajstaal">
+                <img class="w-12 min-w-[3rem] h-12" src="./static/images/github-mark.svg" alt="">
+                </a>
+                <a href="https://www.linkedin.com/in/almer-staal-417b09b8/">
+                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/LinkedIn_icon.svg" alt="">
+                </a>
+                <a href="/">
+                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/cv.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="p-4 flex items-center">
+
+    </div> -->
+    <div class="py-4 sm:hidden col-span-1">
+        <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
+    </div>
+    <div class="text-center p-2" >
+        <h2 class="text-2xl" id="welcome-message"></h2>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Almer Staal</title>
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+ <script>
+    window.onload = function () {
+        new TypeIt("#welcome-message", {
+            strings: ["Welcome to my website.","Please contact me through LinkedIn."],
+            speed: 50,
+            waitUntilVisible: true,
+        }).go();
+    };
+</script>
+</head>
+<body>
+    <header class="flex px-8 py-6 border-b-2">
+        <div class="grid grid-cols-3 gap-4 w-full text-2xl items-end">
+            <div class="col-span-1">
+                <a href="/">Almer Staal</a>
+            </div>
+            <div class="rounded-xl h-full min-h-[12rem] w-full min-w-[6rem] bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
+            <div class="col-span-1 flex justify-end space-x-4">
+                <a href="https://github.com/ajstaal">
+                <img class="w-12 min-w-[3rem] h-12" src="./static/images/github-mark.svg" alt="">
+                </a>
+                <a href="https://www.linkedin.com/in/almer-staal-417b09b8/">
+                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/LinkedIn_icon.svg" alt="">
+                </a>
+                <a href="/">
+                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/cv.svg" alt="">
+                </a>
+            </div>
+        </div>
+    </header>
+  
+</body>
+</html>
