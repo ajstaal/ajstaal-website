@@ -3,24 +3,13 @@
 <head>
  <title>Almer Staal</title>
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <script src="https://cdn.tailwindcss.com"></script>
- <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
- <link rel="stylesheet" type="text/css" href="./static/css/style.css">
- <script>
-    window.onload = function () {
-        new TypeIt("#welcome-message", {
-            strings: ["Welcome to my personal website."],
-            speed: 45,
-            waitUntilVisible: true,
-        }).go();
-    };
-</script>
+ <link rel="stylesheet" type="text/css" href="./static/css/output.css">
 </head>
 <body class="h-full">
     <div class="flex px-8 py-6 border-b-2 sm:h-3/6">
         <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full text-2xl items-end">
             <div class="col-span-1">
-                <a href="/">Almer Staal</a>
+                <a href=".">Almer Staal</a>
             </div>
             <div class="pt-12 hidden sm:block col-span-1">
                 <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
@@ -42,14 +31,14 @@
     <div class="py-6 sm:hidden col-span-1">
         <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
     </div>
-    <div class="text-center py-6" >
-        <h2 class="text-2xl" id="welcome-message"></h2>
+    <div class="text-center pb-6 sm:py-6" >
+        <h2 class="text-2xl">Welcome to my personal website</h2>
     </div>
     <div class="flex justify-center">
-        <a href="https://quizdove.com" class="hover:underline justify-center gap-4 flex items-center bg-green-700 rounded-xl p-4 text-white hover:bg-green-800">
-            <span class="text-xl w-32 text-center">Check out my newest app</span>
+        <a href="https://quizdove.com" class="border-2 hover:underline justify-center gap-4 flex items-center bg-green-700 rounded-xl p-4 text-white hover:bg-green-800">
+            <span class="text-xl w-32 text-center">Check out my latest app</span>
             
-            <img class="" height="30" width="30" src="./static/images/dove.svg" alt="">
+            <img class="" height="40" width="40" src="./static/images/dove.svg" alt="">
         </a>
     </div>
 
