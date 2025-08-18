@@ -1,53 +1,176 @@
 <!DOCTYPE html>
-<html class="h-full" lang="en">
+<html lang="en">
 <head>
- <title>Almer Staal</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" type="text/css" href="./static/css/output.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Almer Staal – Personal Website</title>
+  <meta name="description" content="Full‑stack developer focused on positive societal impact. Based in Amsterdam."/>
+  <meta property="og:title" content="Almer Staal – Personal Website"/>
+  <meta property="og:description" content="Full‑stack developer focused on positive societal impact. Based in Amsterdam."/>
+  <meta property="og:type" content="website"/>
+  <meta name="theme-color" content="#111315"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0c0f;          /* dark background */
+      --fg: #e9eef3;          /* primary text */
+      --muted: #aab4c0;       /* secondary text */
+      --ring: #c7d2fe;        /* subtle ring */
+      --card: #111315;        /* card bg */
+      --accent: #93c5fd;      /* accent */
+      --btn-bg: #e5e7eb;      /* icon button light */
+      --btn-fg: #111827;      /* icon fg light */
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg:#f7f7f8; --fg:#0b1220; --muted:#556070; --ring:#c7d2fe; --card:#ffffff; 
+        --accent:#2563eb; --btn-bg:#111827; --btn-fg:#f9fafb;
+      }
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 50% 0%, rgba(147,197,253,0.10), transparent 60%), var(--bg);
+      color: var(--fg);
+      display: grid;
+      place-items: center;
+    }
+    .container {
+      width: min(1080px, 94vw);
+      padding: 6vh 2rem 12vh;
+      text-align: center;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: clamp(1.25rem, 5vw, 4rem);
+      margin: clamp(2rem, 6vh, 4rem) auto;
+    }
+    .avatar {
+      width: clamp(160px, 22vw, 260px);
+      aspect-ratio: 1/1;
+      border-radius: 24px;
+      background: linear-gradient(180deg, #d1d5db, #9ca3af);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .icon-btns {
+      display: flex; justify-content: center; gap: clamp(1rem, 4vw, 3rem);
+    }
+    .icon-btn {
+      width: clamp(64px, 10vw, 92px);
+      height: clamp(64px, 10vw, 92px);
+      border-radius: 999px;
+      background: var(--btn-bg);
+      color: var(--btn-fg);
+      display: grid; 
+      place-items: center;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,.25);
+      transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+      position: relative; 
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .icon-btn:after{
+      content: ""; 
+      position: absolute; 
+      inset: -3px; 
+      border-radius: inherit; 
+      background: radial-gradient(200px 200px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.22), transparent 60%);
+      opacity: 0; 
+      transition: opacity .2s ease;
+      z-index: -1;
+    }
+    .icon-btn:hover{ 
+      transform: translateY(-2px); 
+      box-shadow: 0 12px 28px rgba(0,0,0,.30); 
+    }
+    .icon-btn:hover:after{ 
+      opacity: 1; 
+    }
+    .icon-btn svg, .icon-btn img{ 
+      width: 60%; 
+      height: 60%; 
+      object-fit: contain; 
+    }
+    .icon-label{ margin-top: .5rem; font-size: .9rem; color: var(--muted); }
+
+    h1 {
+      font-size: clamp(1.6rem, 2.4rem + 1vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 .6rem;
+      letter-spacing: -0.02em;
+    }
+    p.lead {
+      color: var(--muted);
+      max-width: 56ch;
+      margin: .25rem auto 0;
+      font-size: clamp(1rem, .96rem + .2vw, 1.125rem);
+    }
+
+    .footer { margin-top: 12vh; color: var(--muted); font-size: .9rem; }
+    .footer a{ color: inherit; }
+
+    /* Mobile stacking */
+    @media (max-width: 700px){
+      .hero{ grid-template-columns: 1fr; }
+      .icon-btns{ order: -1; margin-bottom: .5rem; }
+    }
+  </style>
 </head>
-<body class="h-full">
-    <div class="flex px-8 py-6 border-b-2 sm:h-3/6">
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 w-full text-2xl items-end">
-            <div class="col-span-1">
-                <a href=".">Almer Staal</a>
-            </div>
-            <div class="pt-12 hidden sm:block col-span-1">
-                <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
-            </div>
-            <div class="col-span-1 flex justify-end space-x-4">
-                <a href="https://github.com/ajstaal">
-                <img class="w-12 min-w-[3rem] h-12" src="./static/images/github-mark.svg" alt="">
-                </a>
-                <a href="https://www.linkedin.com/in/almer-staal-417b09b8/">
-                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/LinkedIn_icon.svg" alt="">
-                </a>
-                <a href="/">
-                    <img class="w-12 min-w-[3rem] h-12" src="./static/images/cv.svg" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
+<body>
+  <main class="container" aria-label="Intro">
 
-    <div class="py-6 sm:hidden col-span-1">
-        <div class="rounded-xl h-full min-h-[12rem] w-44 bg-cover bg-center mx-auto" style="background-image: url('./static/images/almer-staal.jpg');"></div>
-    </div>
-    <div class="text-center pb-6 sm:py-6" >
-        <h2 class="text-2xl">Welcome to my personal website</h2>
-    </div>
-    <div class="flex justify-center text-center font-medium relative">
-        <div class="absolute top-[-15px] bg-white p-1">Projects</div>
-        <div class="border-2 p-4 rounded-xl">
-            <a href="https://quizdove.com" class="shadow-xl mb-2 border-2 justify-center gap-4 flex items-center bg-green-700 rounded-xl p-4 text-white hover:opacity-90">
-                <span class="text-xl w-32 text-center font-mono">Quizdove</span>
-                <img class="" height="40" width="40" src="./static/images/dove.svg" alt="">
-            </a>
-            <a href="https://my.carbonequity.com/login/?next=/" class="shadow-xl border-2 justify-center flex items-center bg-blue-200 rounded-xl p-4 hover:opacity-90">
-                <img width="104" height="44" class="" src="./static/images/carbon_equity_black.svg" alt="">
-            </a>
-        </div>
-    </div>
+    <section class="hero" aria-label="Avatar and social links">
+      <div class="icon-btns">
+        <a class="icon-btn" href="https://github.com/atlasrealm" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <img src="./static/images/github-mark.svg" alt="GitHub">
+        </a>
+      </div>
 
+      <figure class="avatar" aria-label="Profile photo">
+        <img src="./static/images/almer-staal.jpg" alt="Portrait of Almer Staal" />
+      </figure>
 
+      <div class="icon-btns">
+        <a class="icon-btn" href="https://www.linkedin.com/in/almer-staal-417b09b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <img src="./static/images/LinkedIn_icon.svg" alt="LinkedIn">
+        </a>
+      </div>
+    </section>
 
+    <h1>Welcome to my personal website</h1>
+    <p class="lead">I am a full‑stack developer based in Amsterdam. Positive societal impact is the focus of all my projects.</p>
+
+    <!-- <footer class="footer">
+      <span>© <span id="y"></span> Your Name</span>
+      · <a href="mailto:you@example.com">you@example.com</a>
+    </footer> -->
+  </main>
+
+  <script>
+    // Year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Subtle pointer glow on circular buttons
+    const btns = document.querySelectorAll('.icon-btn');
+    btns.forEach(b => {
+      b.addEventListener('pointermove', e => {
+        const r = b.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width * 100;
+        const y = (e.clientY - r.top) / r.height * 100;
+        b.style.setProperty('--mx', x + '%');
+        b.style.setProperty('--my', y + '%');
+      });
+    });
+  </script>
 </body>
 </html>
