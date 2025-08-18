@@ -29,19 +29,24 @@
       }
     }
     * { box-sizing: border-box; }
-    html, body { height: 100%; }
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background: radial-gradient(1200px 800px at 50% 0%, rgba(147,197,253,0.10), transparent 60%), var(--bg);
       color: var(--fg);
-      display: grid;
-      place-items: center;
     }
     .container {
       width: min(1080px, 94vw);
-      padding: 6vh 2rem 12vh;
       text-align: center;
+      margin: 0 auto;
+    }
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 6vh 2rem;
     }
     .hero {
       display: grid;
@@ -54,8 +59,10 @@
     /* Mobile optimizations */
     @media (max-width: 640px) {
       .container {
-        padding: 3vh 0.75rem 6vh;
         width: 100vw;
+      }
+      .hero-section {
+        padding: 3vh 0.75rem;
       }
       .hero {
         gap: 1.5rem;
@@ -223,31 +230,133 @@
     .footer { margin-top: 12vh; color: var(--muted); font-size: .9rem; }
     .footer a{ color: inherit; }
 
+    /* Projects section styles */
+    .projects-section {
+      padding: 6vh 2rem 12vh;
+      text-align: left;
+    }
+    .projects-section h2 {
+      font-size: clamp(2rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+    .projects-intro {
+      color: var(--muted);
+      text-align: center;
+      max-width: 60ch;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      background: var(--card);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.1);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+    }
+    .project-card h3 {
+      margin: 0 0 0.75rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    
+    /* Projects link styling */
+    .projects-link {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-color: transparent;
+      transition: text-decoration-color .2s ease;
+    }
+    .projects-link:hover {
+      text-decoration-color: var(--accent);
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Mobile projects section */
+    @media (max-width: 640px) {
+      .projects-section {
+        margin-top: 4rem;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .project-card {
+        padding: 1.5rem;
+      }
+      .projects-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+    }
+
   </style>
 </head>
 <body>
   <main class="container" aria-label="Intro">
+    <div class="hero-section">
+      <section class="hero" aria-label="Avatar and social links">
+        <div class="icon-btns">
+          <a class="icon-btn" href="https://github.com/atlasrealm" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <img src="./static/images/github-mark.svg" alt="GitHub">
+          </a>
+        </div>
 
-    <section class="hero" aria-label="Avatar and social links">
-      <div class="icon-btns">
-        <a class="icon-btn" href="https://github.com/atlasrealm" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="./static/images/github-mark.svg" alt="GitHub">
+        <figure class="avatar" aria-label="Profile photo">
+          <img src="./static/images/almer-staal.jpg" alt="Portrait of Almer Staal" />
+        </figure>
+
+        <div class="icon-btns">
+          <a class="icon-btn" href="https://www.linkedin.com/in/almer-staal-417b09b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <img src="./static/images/LinkedIn_icon.svg" alt="LinkedIn">
+          </a>
+        </div>
+      </section>
+
+      <h1>Welcome to my personal website</h1>
+      <p class="lead">I am a full‑stack developer based in Amsterdam. Positive societal impact is the focus of all my <a href="#projects" class="projects-link">projects</a>.</p>
+    </div>
+
+    <section id="projects" class="projects-section" aria-label="Projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <a href="https://carbonequity.com" target="_blank" rel="noopener noreferrer" class="project-card" style="text-decoration: none; color: inherit;">
+          <h3><img src="https://cdn.prod.website-files.com/62eb8ccb51692698f4ded799/62f4d7d6c5de6410ad248bdd_carbon-equtity-logo-white.svg" alt="Carbon Equity" style="height: 40px;"></h3>
+          <p>Help solve climate change by investing in pioneering climate tech companies. A platform that allows individuals to invest in handpicked climate solution portfolios across energy, industry, food, and transport sectors.</p>
         </a>
-      </div>
-
-      <figure class="avatar" aria-label="Profile photo">
-        <img src="./static/images/almer-staal.jpg" alt="Portrait of Almer Staal" />
-      </figure>
-
-      <div class="icon-btns">
-        <a class="icon-btn" href="https://www.linkedin.com/in/almer-staal-417b09b8/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="./static/images/LinkedIn_icon.svg" alt="LinkedIn">
+        <a href="https://quizdove.com" target="_blank" rel="noopener noreferrer" class="project-card" style="text-decoration: none; color: inherit;">
+          <h3 style="display: flex; align-items: center; gap: 8px; margin-bottom: 1rem;">
+            <img src="https://quizdove.com/static/images/dove.svg" alt="QuizDove dove icon" style="height: 32px;">
+            <span style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 600;">Quizdove</span>
+          </h3>
+          <p>Inspired by speed chess puzzles, I built this educational quiz app to help people learn a variety of topics in a fun and engaging way.</p>
         </a>
+        <div class="project-card">
+          <h3>Coming Soon</h3>
+          <p>I am always working on new projects. Another one that is focused on philanthropy is currently in development.</p>
+        </div>
       </div>
     </section>
-
-    <h1>Welcome to my personal website</h1>
-    <p class="lead">I am a full‑stack developer based in Amsterdam. Positive societal impact is the focus of all my projects.</p>
 
     <!-- <footer class="footer">
       <span>© <span id="y"></span> Your Name</span>
