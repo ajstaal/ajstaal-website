@@ -50,6 +50,34 @@
       gap: clamp(1.25rem, 5vw, 4rem);
       margin: clamp(2rem, 6vh, 4rem) auto;
     }
+    
+    /* Mobile optimizations */
+    @media (max-width: 640px) {
+      .container {
+        padding: 3vh 0.75rem 6vh;
+        width: 100vw;
+      }
+      .hero {
+        gap: 1.5rem;
+        margin: 1.5rem auto;
+        justify-items: center;
+      }
+      .hero .icon-btns:first-child {
+        order: 1;
+      }
+      .hero .avatar {
+        order: 2;
+      }
+      .hero .icon-btns:last-child {
+        order: 3;
+      }
+      .avatar {
+        margin: 0 auto;
+        width: clamp(140px, 35vw, 180px);
+        border-radius: 20px;
+      }
+    }
+    
     .avatar {
       width: clamp(160px, 22vw, 260px);
       aspect-ratio: 1/1;
@@ -79,6 +107,32 @@
       isolation: isolate;
       overflow: hidden;
     }
+    
+    /* Mobile icon button optimizations */
+    @media (max-width: 640px) {
+      .icon-btn {
+        width: 72px;
+        height: 72px;
+        min-width: 72px;
+        min-height: 72px;
+      }
+      .icon-btns {
+        gap: 1.5rem;
+      }
+    }
+    
+    /* Extra small mobile icon adjustments */
+    @media (max-width: 400px) {
+      .icon-btn {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+        min-height: 64px;
+      }
+      .icon-btns {
+        gap: 1.25rem;
+      }
+    }
     .icon-btn:after{
       content: ""; 
       position: absolute; 
@@ -95,6 +149,25 @@
     }
     .icon-btn:hover:after{ 
       opacity: 1; 
+    }
+    
+    /* Touch device optimizations */
+    @media (hover: none) {
+      .icon-btn:active {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(0,0,0,.35);
+      }
+      .icon-btn:active:after {
+        opacity: 1;
+      }
+    }
+    
+    /* Better touch targets on mobile */
+    @media (max-width: 640px) {
+      .icon-btn {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
     }
     .icon-btn svg, .icon-btn img{ 
       width: 60%; 
@@ -115,15 +188,41 @@
       margin: .25rem auto 0;
       font-size: clamp(1rem, .96rem + .2vw, 1.125rem);
     }
+    
+    /* Mobile typography improvements */
+    @media (max-width: 640px) {
+      h1 {
+        font-size: clamp(1.8rem, 5vw, 2.2rem);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+      p.lead {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        max-width: 90vw;
+        margin: 0 auto;
+        padding: 0 0.5rem;
+      }
+    }
+    
+    /* Extra small mobile typography */
+    @media (max-width: 400px) {
+      h1 {
+        font-size: clamp(1.5rem, 6vw, 1.9rem);
+        margin: 0 0 0.75rem;
+        padding: 0 0.5rem;
+      }
+      p.lead {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+        max-width: 95vw;
+      }
+    }
 
     .footer { margin-top: 12vh; color: var(--muted); font-size: .9rem; }
     .footer a{ color: inherit; }
 
-    /* Mobile stacking */
-    @media (max-width: 700px){
-      .hero{ grid-template-columns: 1fr; }
-      .icon-btns{ order: -1; margin-bottom: .5rem; }
-    }
   </style>
 </head>
 <body>
